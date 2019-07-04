@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<title>EDITAR</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/css/uikit.min.css"/> 
+	</head>
+	<body>
+		<div class = "uk-container">
+			<article class = "uk-article" th:each = "cadastro : ${cadastrar}">
+				<h1 class = "uk-article-title" th:text = "${'Editar '+cadastro.nome}"></h1>
+				<form class = "uk-from-horizontal uk-margin-large" th:action = "@{/editar}" method = "post" enctype = "multipart/form-data">
+					<div class = "uk-margin">
+					
+						<label class = "uk-form-label" for = "form-horizontal-text">Nome do cadastrar</label>						
+						<div class = "uk-form-controls">
+							<!--<input class = "uk-input" id = "form-horizontal-text" type = "text" name = "nome" placeholder = "nome do cadastrar" th:value = "${cadastro.nome}">-->
+							<input class = "uk-input" type = "text" name = "nome" th:value = "${cadastro.nome}">								
+						</div>
+						
+						<label class = "uk-form-label" for = "form-horizontal-text">Sobrenome do cadastrar</label>
+						<div class = "uk-form-controls">
+							<input class = "uk-input" type = "text" name = "sobrenome" th:value = "${cadastro.sobrenome}">								
+						</div>
+						
+						<label class = "uk-form-label" for = "form-horizontal-text">Data de nascimento</label>
+						<div class = "uk-form-controls">
+							<input class = "uk-input" type = "date" name = "data" th:value = "${cadastro.data}">								
+						</div>
+						
+						<label class = "uk-form-label" for = "form-horizontal-text">Data entrar</label>
+						<div class = "uk-form-controls">
+							<input class = "uk-input" type = "date" name = "entrar" th:value = "${cadastro.entrar}">								
+						</div>
+						
+						<label class = "uk-form-label" for = "form-horizontal-text">Data saida</label>
+						<div class = "uk-form-controls">
+							<input class = "uk-input" type = "date" name = "saida" th:value = "${cadastro.saida}">								
+						</div>
+						
+						<label class = "uk-form-label" for = "form-horizontal-text">Telefone do cadastrar</label>
+						<div class = "uk-form-controls">
+							<input class = "uk-input" type = "text" name = "telefone" th:value = "${cadastro.telefone}">								
+						</div>
+						
+						<label class = "uk-form-label" for = "form-horizontal-text">E-mail do cadastrar</label>
+						<div class = "uk-form-controls">
+							<input class = "uk-input" type = "text" name = "email" th:value = "${cadastro.email}">								
+						</div>
+						
+						<label class = "uk-form-label" for = "form-horizontal-text">Cargo do cadastrar</label>
+						<div class = "uk-form-controls">
+							<input class = "uk-input" type = "text" name = "cargo" th:value = "${cadastro.cargo}">								
+						</div>
+						
+						<label class = "uk-form-label" for = "form-horizontal-text">Salario do cadastrar</label>
+						<div class = "uk-form-controls">
+							<input class = "uk-input" type = "text" name = "salario" th:value = "${cadastro.salario}">								
+						</div>
+						
+						<input type="hidden" name="id" th:value="${cadastro.id}">
+						
+					</div>
+					<div class = "uk-margin">
+						<td><button class = "uk-button uk-button-primary">SALVAR ALTERAÇÃO</button></td>
+						<td style = "text-align:right"><a class = "uk-button uk-button-default" th:href = "@{'/'}">VOLTAR</a></td>
+					</div>
+				</form>
+			</article>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/js/uikit.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/js/uikit-icons.min.js"></script>
+	</body>
+</html>

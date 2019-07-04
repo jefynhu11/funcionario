@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset = "UFT-8></meta>
+		<title>UPLOAD</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/css/uikit.min.css"/>
+	</head>
+	<body>
+		<div class = "uk-container">
+			<article class = "uk-article" th:each = "cadastro : ${cadastrar}">
+				<form action = "/upload" method = "post" enctype = "multipart/form-data">
+					<input type = "file" name = "files" multiple>
+					<input type = "submit" value = "Upload Files"></input>
+				</form>
+			</article>
+		</div>
+	</body>
+</html>

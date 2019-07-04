@@ -1,0 +1,115 @@
+<html>
+    <head>
+        <title>Cadastrar do funcionario</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/css/uikit.min.css" />  
+    </head>
+    <body>
+        <div class="uk-container">
+    		<button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #modal-example">Novo cadastrar</button>
+            <table class="uk-table uk-table-striped">
+                <thead>
+                    <tr>
+                        <th>Nome do cadastrar</th>
+                        <th>Sobrenome do cadastrar</th>
+                        <th>Data do nascimento</th>
+                        <th>Data entrar</th>
+                        <th>Data saida</th>
+                        <th>Telefone</th>
+                        <th>E-mail</th>
+                        <th>Cargo</th>
+                        <th>Salario</th>
+                        <th>Foto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each = "cadastro : ${cadastrar}">
+                        <td th:text = "${cadastro.nome}"></td>
+                        <td th:text = "${cadastro.sobrenome}"></td>
+                        <td th:text = "${cadastro.data}"></td>
+                        <td th:text = "${cadastro.entrar}"></td>
+                        <td th:text = "${cadastro.saida}"></td>
+                        <td th:text = "${cadastro.telefone}"></td>
+                        <td th:text = "${cadastro.email}"></td>
+                        <td th:text = "${cadastro.cargo}"></td>
+                        <td th:text = "${cadastro.salario}"></td>
+                        <td></td>
+                        <!--<td><a th:href = "@{'/upload/' + ${cadastro.id}}"> ENVIAR </a></td>-->
+                        <td><a th:href = "@{'/editar/' + ${cadastro.id}}"> EDITAR </a></td>
+                        <td><a th:href = "@{'/apagar/' + ${cadastro.id}}"> APAGAR </a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    	
+        <div id="modal-example" uk-modal>
+            <div class="uk-modal-dialog uk-modal-body">
+                <form th:action="@{/}" method="post" enctype="multipart/form-data">
+                    <fieldset class="uk-fieldset">
+					<legend class="uk-legend">Novo de cadastrar</legend>
+                        
+                        <div class="uk-margin">
+                            <input class="uk-input" type="text" name="nome" placeholder="Nome de cadastro">
+                        </div>
+                        
+                        <div class="uk-margin">
+                            <input class="uk-input" type="text" name="sobrenome" placeholder="Sobrenome de cadastro">
+                        </div>
+                        
+                        <div class="uk-margin">
+                        <legend>Data de nascimento</legend>
+                            <input class="uk-input" type="text" name="data" placeholder="Data de nascimento">
+                        </div>
+                        
+                        <div class="uk-margin">
+                        <legend>Data entrar</legend>
+                            <input class="uk-input" type="date" name="entrar" placeholder="Data entrar">
+                        </div>
+                        
+                        <div class="uk-margin">
+                        <legend>Data saida</legend>
+                            <input class="uk-input" type="date" name="saida" placeholder="Data saida">
+                        </div>
+                        
+                        <div class="uk-margin">
+                            <input class="uk-input" type="text" name="telefone" placeholder="Telefone de funcionario">
+                        </div>
+                        
+                        <div class="uk-margin">
+                            <input class="uk-input" type="text" name="email" placeholder="E-mail de funcionario">
+                        </div>
+                        
+                        <div class="uk-margin">
+                            <input class="uk-input" type="text" name="cargo" placeholder="Cargo de funcionario">
+                        </div>
+                        
+                        <div class="uk-margin">
+                            <input class="uk-input" type="text" name="salario" placeholder="Salario de funcionario">
+                        </div>
+                        
+                        <div class="js-upload" uk-form-custom>
+                        <legend>Foto</legend>
+    						
+    						<input type="file" multiple>
+    						<button class="uk-button uk-button-default" type="button" tabindex="-1">UPLOAD</button>
+    						
+    						<!--<form action = "/upload" method = "post" enctype = "multipart/form-data">
+								<input type = "file" name = "files" multiple>
+								<input type = "submit" value = "Upload Files"></input>
+							</form>-->
+						</div>
+                        
+                    </fieldset>
+                    
+                    <p class="uk-text-right">
+                        <button class="uk-button uk-button-primary" type="submit">Adicionar</button>
+                        <button class="uk-button uk-button-default uk-modal-close" type="button">Cancelar</button>
+                    </p>
+                    
+                </form>
+            </div>
+        </div>
+    	
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/js/uikit.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/js/uikit-icons.min.js"></script>
+    </body>
+</html>
